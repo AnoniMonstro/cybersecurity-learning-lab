@@ -1,32 +1,33 @@
 import re
+from getpass import getpass
 
-print(" Password Strength Checker ")
+print(" Verificando força de senha ")
 
-password = input("Enter a password to analyze: ")
+senha = getpass("Digite sua senha: ")
 
 score = 0
 
-if len(password) >= 8:
+if len(senha) >= 8:
     score += 1
 
-if re.search(r"[a-z]", password):
+if re.search(r"[a-z]", senha):
     score += 1
 
-if re.search(r"[A-Z]", password):
+if re.search(r"[A-Z]", senha):
     score += 1
 
-if re.search(r"\d", password):
+if re.search(r"\d", senha):
     score += 1
 
-if re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+if re.search(r"[!@#$%^&*(),.?\":{}|<>]", senha):
     score += 1
 
 
-print("\n Password Analysis")
+print("\n Verificando...")
 
 if score <= 2:
-    print(" Weak password")
+    print(" Senha fraca")
 elif score <= 4:
-    print(" Medium password")
+    print(" Senha média")
 else:
-    print(" Strong password")
+    print(" Senha forte")
